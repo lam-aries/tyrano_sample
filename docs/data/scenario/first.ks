@@ -1,9 +1,12 @@
 *start
 
-[title name="走るか寝るかするメロス"]
+[title name="走れよメロス"]
 [hidemenubutton]
 [wait time=200]
 [freeimage layer="base"]
+[iscript]
+n=0
+[endscript]
 
 「走るか寝るかするメロス」[l][r]
 
@@ -16,8 +19,11 @@
 ああ、何もかも、ばかばかしい。私は、醜い裏切り者だ。どうとも、勝手にするがよい。やんぬる哉。[l][r]
 メロスは...[l][r]
 
+*select
+
 [link target=*tag_sleep] →寝る [endlink][r]
 [link target=*tag_run] →走る [endlink][r]
+[link target=*tag_eat] →食べる [endlink][r]
 [s]
 
 *tag_sleep
@@ -32,6 +38,32 @@
 【 BAD END 】[l][cm]
 
 [jump target=*start]
+
+*tag_eat
+
+[if exp="n<1"]
+[cm]
+
+[bg storage=eat.png time=500]
+
+メロスはカレーを食べた。[l][r]
+よし！腹は満たされた！[l][r]
+[iscript]
+n=n+1
+[endscript]
+
+[jump target=*select]
+
+[else]
+[cm]
+
+[bg storage=eat.png time=500]
+
+メロスは欲望のままに食らった。[l][r]
+うっ...いっぱい食べたら眠くなってきた...[l][r]
+
+[jump target=*tag_sleep]
+[endif]
 
 *tag_run
 
