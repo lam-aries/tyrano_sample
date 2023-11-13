@@ -24,7 +24,38 @@ n=0
 [link target=*tag_sleep] →寝る [endlink][r]
 [link target=*tag_run] →走る [endlink][r]
 [link target=*tag_eat] →食べる [endlink][r]
+[link target=*tag_money] →資金調達 [endlink][r]
 [s]
+
+*tag_money
+[iscript]
+r = Math.random() * 10
+[endscript]
+
+[if exp="r<1"]
+[cm]
+
+[bg storage=win.png time=500]
+
+メロスは大勝した。[l][r]
+よっしゃぁ」！！！[l][r]
+
+【 GOOD END...? 】[l][cm]
+
+[jump target=*start]
+
+[else]
+[cm]
+
+[bg storage=lose.png time=500]
+
+メロスは所持金を失った。[l][r]
+どうしてこうなった...[l][r]
+
+【 BAD END 】[l][cm]
+
+[jump target=*start]
+[endif]
 
 *tag_sleep
 
